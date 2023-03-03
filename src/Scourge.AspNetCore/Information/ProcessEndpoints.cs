@@ -66,7 +66,7 @@ internal static class ProcessEndpoints
             var process = processId != -1 ? Process.GetProcessById(processId) : Process.GetCurrentProcess();
             return TypedResults.Ok(new ProcessInfo(process));
         }
-        catch (ArgumentException e)
+        catch (ArgumentException)
         {
             return TypedResults.NotFound();
         }
@@ -84,9 +84,10 @@ internal static class ProcessEndpoints
 
     private static Dictionary<string, string> GetEnvironment(HttpContext context)
     {
-        return Environment.GetEnvironmentVariables()
-            .Cast<DictionaryEntry>()
-            .ToDictionary(entryKey => entryKey.Key!.ToString(), entryVal => entryVal.Value!.ToString());
+        return new Dictionary<string, string>(
+            Environment.GetEnvironmentVariables()
+                .Cast<DictionaryEntry>()
+                .Select(e => new KeyValuePair<string, string>(e.Key.ToString()!, e.Value?.ToString() ?? "")));
     }
 
     private static MemoryInfo Stats()
