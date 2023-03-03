@@ -68,9 +68,10 @@ internal static class HurtEndpoints
         return group;
     }
 
-    private static IEnumerable<WorkInfo> GetWork(IWorkManager workManager)
+    private static IEnumerable<Work> GetWork(IWorkManager workManager)
     {
-        return workManager.GetActiveWork();
+        return workManager.GetActiveWork()
+            .Select(work => new Work(work.Id, true, work.StartTime));
     }
 
     private static Ok StopWork(IWorkManager workManager, string workId)
@@ -82,6 +83,6 @@ internal static class HurtEndpoints
     private static Work StartWork(IWorkManager workManager, int threadCount = 1)
     {
         var work = workManager.StartWork(cancel => ThreadWhipper.DoNothingWork(threadCount, cancel));
-        return new Work(work);
+        return new Work(work.Id, true, work.StartTime);
     }
 }

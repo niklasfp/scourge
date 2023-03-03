@@ -3,11 +3,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Scourge.Hurt
 {
-    public readonly record struct WorkInfo(string Id, DateTime StartTime, IWork Work);
+    public readonly record struct WorkInfo(string Id, DateTimeOffset StartTime, IWork Work);
 
     public interface IWorkManager
     {
-        string StartWork(Func<CancellationToken, IWork> createWork);
+        WorkInfo StartWork(Func<CancellationToken, IWork> createWork);
 
         public bool StopWork(string id);
 
@@ -23,7 +23,7 @@ namespace Scourge.Hurt
     {
         private readonly ConcurrentDictionary<string, WorkEntry> _workInProgress = new();
 
-        public string StartWork(Func<CancellationToken, IWork> createWork)
+        public WorkInfo StartWork(Func<CancellationToken, IWork> createWork)
         {
             var id = Guid.NewGuid().ToString("N");
             var cts = new CancellationTokenSource();
@@ -32,7 +32,7 @@ namespace Scourge.Hurt
             var workEntry = new WorkEntry(id, DateTime.UtcNow, work, cts);
 
             _workInProgress.TryAdd(id, workEntry);
-            return id;
+            return WorkEntryToInfo(workEntry);
         }
 
         public bool StopWork(string id)
@@ -48,9 +48,14 @@ namespace Scourge.Hurt
 
         public IEnumerable<WorkInfo> GetActiveWork()
         {
-            return _workInProgress.Select(e => new WorkInfo(e.Key, e.Value.StartTime, e.Value.Work));
+            return _workInProgress.Select(e => WorkEntryToInfo(e.Value));
         }
 
-        private record struct WorkEntry(string Id, DateTime StartTime, IWork Work, CancellationTokenSource TokenSource);
+        private static WorkInfo WorkEntryToInfo(WorkEntry entry)
+        {
+            return new WorkInfo(entry.Id, entry.StartTime, entry.Work);
+        }
+
+        private record struct WorkEntry(string Id, DateTimeOffset StartTime, IWork Work, CancellationTokenSource TokenSource);
     }
 }
