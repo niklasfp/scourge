@@ -1,4 +1,4 @@
-# **Scourge** - *The punisher of your .net core web or app*
+# **Scourge** - *The punisher of your .net core web app or app*
 
 ## What can Scourge do and what the h... is this insanity.
 
