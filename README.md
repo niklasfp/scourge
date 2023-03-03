@@ -1,6 +1,6 @@
 # **Scourge** - *The punisher of your .net core web or app*
 
-## What can Scourge do and why the h... is this insanity.
+## What can Scourge do and what the h... is this insanity.
 
 I needed to inflict :exclamation::boom: on .net stuff running in containers, and this helped me channel all my :rage4:
 
