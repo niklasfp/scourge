@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
+using Scourge.AspNetCore.Hurt.Models;
 using Scourge.Hurt;
 
 namespace Scourge.AspNetCore.Hurt;
@@ -22,10 +23,11 @@ internal static class HurtEndpoints
                 return operation;
             });
 
+        // TODO: Make throw accept a type name, or maybe expose an enum of exceptions we want to support.
         group.MapPost("/throw", () => Crashalot.ThrowException(typeof(ArgumentException)))
             .WithOpenApi(operation =>
             {
-                operation.Description = "Throws an exception.";
+                operation.Description = "Throws an exception. for now ONLY ArgumentException is thrown.";
                 operation.Summary = "Throw whatever.";
                 return operation;
             });
