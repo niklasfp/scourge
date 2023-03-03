@@ -1,3 +1,4 @@
+#if WITH_DIAG
 using System.Diagnostics.Metrics;
 
 namespace Scourge.Diagnostics;
@@ -37,3 +38,4 @@ internal static class Metrics
         Interlocked.Add(ref _unmanagedAllocated, bytesAllocated);
     }
 }
+#endif
