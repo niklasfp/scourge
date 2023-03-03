@@ -1,0 +1,35 @@
+<Project>
+	<PropertyGroup>
+		<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+	</PropertyGroup>
+
+	<!-- Package Props-->
+	<PropertyGroup>
+		<Company>Niklas Petersen</Company>
+		<Description>Inflict pain 👊 in both web and standard .net core applications, with special support for aspnet core.</Description>
+		<Copyright>Niklas Petersen</Copyright>
+		<PackageProjectUrl>https://github.com/niklasfp/scourge</PackageProjectUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/niklasfp/scourge</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>docker;pain;containers stress;stress-testing;aspnet-core;memory-allocation;hurt;minimal-api</PackageTags>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<IncludeSymbols>True</IncludeSymbols>
+	</PropertyGroup>
+
+	<!-- Dependencies for .net 7-->
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net7.0' ">
+		<PackageVersion Include="System.Diagnostics.DiagnosticSource" Version="7.0.1" />
+		<PackageVersion Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+		<PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="7.0.3" />
+		<PackageVersion Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+	</ItemGroup>
+
+	<!-- Dependencies for .net 8-->
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net8.0' ">
+		<PackageVersion  Include="System.Diagnostics.DiagnosticSource" Version="7.0.1" />
+		<PackageVersion Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+		<PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="7.0.3" />
+		<PackageVersion Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+	</ItemGroup>
+</Project>
