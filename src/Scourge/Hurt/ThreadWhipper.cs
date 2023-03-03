@@ -6,6 +6,7 @@ public static class ThreadWhipper
 {
     public static int ProcessorCount => Environment.ProcessorCount;
 
+    // Burns cpu until cancelled
     public static IThreadWork DoNothingWork(int threadCount, CancellationToken cancellationToken)
     {
         var threads = CreateThreadSet(threadCount);
@@ -13,6 +14,7 @@ public static class ThreadWhipper
         return threads;
     }
 
+    // Burns cpu until cancelled
     private static void DoNothingLoop(int threadNum, CancellationToken cancellationToken)
     {
         while (!cancellationToken.IsCancellationRequested)

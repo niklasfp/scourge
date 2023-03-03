@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scourge", "Scourge\Scourge.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scourge.AspNetCore", "Scourge.AspNetCore\Scourge.AspNetCore.csproj", "{17EDB754-64A1-4505-A31F-7961798A3D1F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E84F1040-59FC-40AD-8FF3-DD0A356DC12D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scourge.Tests", "Scourge.Tests\Scourge.Tests.csproj", "{748CA1A8-2220-45B2-89AA-CC2985F797CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,9 +31,16 @@ Global
 		{17EDB754-64A1-4505-A31F-7961798A3D1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17EDB754-64A1-4505-A31F-7961798A3D1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17EDB754-64A1-4505-A31F-7961798A3D1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{748CA1A8-2220-45B2-89AA-CC2985F797CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{748CA1A8-2220-45B2-89AA-CC2985F797CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{748CA1A8-2220-45B2-89AA-CC2985F797CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{748CA1A8-2220-45B2-89AA-CC2985F797CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{748CA1A8-2220-45B2-89AA-CC2985F797CF} = {E84F1040-59FC-40AD-8FF3-DD0A356DC12D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6D46826A-5DF3-4B62-9D6E-EFA52B3B2C8A}

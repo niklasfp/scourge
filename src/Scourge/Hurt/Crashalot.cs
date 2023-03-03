@@ -1,9 +1,14 @@
 ﻿using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Scourge.Hurt;
 
 public static class Crashalot
 {
+
+    [StackTraceHidden]
+    [DoesNotReturn]
+    [ExcludeFromCodeCoverage]
     public static void StackOverflow()
     {
         while (true)
@@ -15,6 +20,14 @@ public static class Crashalot
     }
 
     [StackTraceHidden]
+    [DoesNotReturn]
+    public static void ThrowException<T>(string? message = default) where T : Exception
+    {
+        ThrowException(typeof(T), message);
+    }
+
+    [StackTraceHidden]
+    [DoesNotReturn]
     public static void ThrowException(Type exceptionType, string? message = default)
     {
         if (!typeof(Exception).IsAssignableFrom(exceptionType))
@@ -28,6 +41,8 @@ public static class Crashalot
     }
 
     [StackTraceHidden]
+    [DoesNotReturn]
+    [ExcludeFromCodeCoverage]
     public static async void AsyncVoidThrow()
     {
         await Task.Run(() => throw new InvalidOperationException("Feels bad right"));
