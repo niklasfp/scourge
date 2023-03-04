@@ -41,7 +41,7 @@ I needed to inflict :exclamation::boom: on .net stuff running in containers, and
 2. Use Scourge in your app, see the simple example below. or the "full" [sample/test application](src/Contallocator)
 
 > **Warning**
-> In the example below and in the "full" example there is **NO AUThENTICATION** enabled, so don't do this in production.
+> In the example below and in the "full" example there is **NO AUTHENTICATION** enabled, so don't do this in production.
 
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
