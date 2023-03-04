@@ -41,7 +41,6 @@ public static class Crashalot
     }
 
     [StackTraceHidden]
-    [DoesNotReturn]
     [ExcludeFromCodeCoverage]
     public static async void AsyncVoidThrow()
     {
