@@ -9,6 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scourge", "Scourge\Scourge.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scourge.AspNetCore", "Scourge.AspNetCore\Scourge.AspNetCore.csproj", "{17EDB754-64A1-4505-A31F-7961798A3D1F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{6B33E2B5-66FC-4491-AE29-D25771195E5D}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+	EndProjectSection
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E84F1040-59FC-40AD-8FF3-DD0A356DC12D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scourge.Tests", "Scourge.Tests\Scourge.Tests.csproj", "{748CA1A8-2220-45B2-89AA-CC2985F797CF}"
