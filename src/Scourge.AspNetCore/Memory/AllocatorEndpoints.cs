@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Scourge.AspNetCore.Memory.Models;
 using Scourge.Memory;
@@ -20,16 +21,17 @@ internal class AllocatorEndpoints<T> where T : struct, IAllocatorEntry
     {
         var name = prefix;
 
-        group.MapPost("/{size}/" + name, Alloc)
+        group.MapPost(name + "/{size:int}", Alloc)
             .WithOpenApi(operation =>
             {
                 operation.Description =
                     "Allocates the given number of bytes and returns and id of the allocated memory.";
                 operation.Summary = "Allocates memory.";
+                operation.Parameters[0].Description = "The number of bytes to allocate..";
                 return operation;
             });
 
-        group.MapDelete("/{key:int}/" + name, Free)
+        group.MapDelete(name + "/{key:int}", Free)
             .WithOpenApi(operation =>
             {
                 operation.Description = "Frees the memory belonging to the specified id";
@@ -48,11 +50,11 @@ internal class AllocatorEndpoints<T> where T : struct, IAllocatorEntry
                 return operation;
             });
 
-        group.MapDelete("" + name, Clear)
+        group.MapDelete(name, Clear)
             .WithOpenApi(operation =>
             {
-                operation.Description = "Free all allocated memory";
-                operation.Summary = "Statistics";
+                operation.Description = "Free all allocated memory for all keys";
+                operation.Summary = "Frees all allocator memory";
 
                 return operation;
             });
@@ -71,13 +73,13 @@ internal class AllocatorEndpoints<T> where T : struct, IAllocatorEntry
         return AllocatorInfo.Map(_allocator.GetStatistics());
     }
 
-    private Ok<MemoryEntryModel> Alloc(uint size)
+    private Ok<MemoryEntryModel> Alloc([FromQuery] uint size)
     {
         var entry = _allocator.Alloc(size);
         return TypedResults.Ok(MemoryEntryModel.Map(entry));
     }
 
-    private Results<Ok<uint>, NotFound> Free(int key)
+    private Results<Ok<uint>, NotFound> Free([FromQuery] int key)
     {
         var freedBytes = _allocator.Free(new EntryKey((uint)key));
         if (freedBytes == 0)

@@ -31,6 +31,12 @@ internal static class AllocEndpoints
             return AllAllocatorsInfo.Map(
                 managed: managed.GetStatistics(),
                 unmanaged: unmanaged.GetStatistics());
+        }) .WithOpenApi(operation =>
+        {
+            operation.Description = "Returns details for both managed and unmanged memory allocated with Scourge";
+            operation.Summary = "Gets allocator details.";
+
+            return operation;
         });
 
         return endpoints;
