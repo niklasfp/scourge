@@ -18,15 +18,15 @@ internal static class ProcessEndpoints
         group.MapGet("/{processId?}", (int? processId) => GetProcessInfo(processId ?? -1))
             .WithOpenApi(operation =>
             {
-                operation.Description = "Returns a list of all environment variables set";
-                operation.Summary = "Environment variables.";
+                operation.Description = "Get memory information such as working set size for a running application.";
+                operation.Summary = "Gets process information.";
                 return operation;
             });
 
         group.MapGet("/env", GetEnvironment)
             .WithOpenApi(operation =>
             {
-                operation.Description = "Returns a list of all environment variables set";
+                operation.Description = "Returns a list of environment variables.";
                 operation.Summary = "Environment variables.";
                 return operation;
             });
@@ -42,7 +42,7 @@ internal static class ProcessEndpoints
         group.MapGet("memory", Stats)
             .WithOpenApi(operation =>
             {
-                operation.Description = "Get memory information such as working set size.";
+                operation.Description = "Get memory information such as working set size for the application hosting Scourge.";
                 operation.Summary = "Application memory information.";
                 return operation;
             });
