@@ -12,7 +12,7 @@ I needed to inflict :exclamation::boom: on .net stuff running in containers, and
 * Throw whatever exception you demand. (as long as it supports a `.ctor(string message)`
 * Get Garbage Collector information and force collects.
 * Get Machine simple information, total memory as seen by the app, number of processors, all configured settings and environment variables.
-* **ThreadWhipper ™ :wink:** start X threads to consume 100% cpu on **all** or **some** of the processors. available to the application (*useful in the winter when you need electrc heating*)
+* **ThreadWhipper ™ :wink:** start X threads to consume 100% cpu on **all** or **some** of the processors. available to the application (*useful in the winter when you need electric heating*)
 * Process information - information about the current process, environment variables, configuration, memory etc.
 * Process list - list runing processes including various details.
 
