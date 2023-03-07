@@ -4,6 +4,9 @@
 
 I needed to inflict :exclamation::boom: on .net stuff running in containers, and this helped me channel all my :rage4:
 
+> **Warning**
+> This is still work in progress, and no nuget packages published...yet, that said it's as simple as cloning and run this sample [src/Contallocator](src/Contallocator)
+
 ## General stuff
 
 * Inflict pain :punch: in both web and standard .net core applications, with special support for aspnet core.
