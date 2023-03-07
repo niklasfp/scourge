@@ -6,4 +6,18 @@
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 		<LangVersion>11</LangVersion>
 	</PropertyGroup>
+
+	<!-- Package Props-->
+	<PropertyGroup>
+		<Company>Niklas Petersen</Company>
+		<Description>Inflict pain 👊 in both web and standard .net core applications, with special support for aspnet core.</Description>
+		<Copyright>Niklas Petersen</Copyright>
+		<PackageProjectUrl>https://github.com/niklasfp/scourge</PackageProjectUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/niklasfp/scourge</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>docker;pain;containers stress;stress-testing;aspnet-core;memory-allocation;hurt;minimal-api</PackageTags>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<IncludeSymbols>True</IncludeSymbols>
+	</PropertyGroup>
 </Project>
