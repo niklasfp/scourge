@@ -24,8 +24,8 @@ internal static class GarbageCollectorEndpoints
         group.MapPost("/collect/{generation?}", (int? generation) => Collect(generation ?? -1))
             .WithOpenApi(operation =>
             {
-                operation.Description = "Get statistics from the DotNet garbage collector.";
-                operation.Summary = "DotNet Garbage Collector statistics";
+                operation.Description = "Forces a garbage collection, optionally of a specific generation..";
+                operation.Summary = "Force garbage collection.";
                 return operation;
             });
 

@@ -28,15 +28,15 @@ internal static class HurtEndpoints
             .WithOpenApi(operation =>
             {
                 operation.Description = "Throws an exception. for now ONLY ArgumentException is thrown.";
-                operation.Summary = "Throw whatever.";
+                operation.Summary = "Throw whatever. (Work in progress)";
                 return operation;
             });
 
         group.MapPost("/throwasyncvoid", Crashalot.AsyncVoidThrow)
             .WithOpenApi(operation =>
             {
-                operation.Description = "Throws an exception in an async method with void return.";
-                operation.Summary = "Throw async void";
+                operation.Description = "Throws an exception in an async method with void return, not your ordinary try catch will help you here.";
+                operation.Summary = "Throw in async void";
                 return operation;
             });
 
