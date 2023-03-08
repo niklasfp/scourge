@@ -1,5 +1,6 @@
 ﻿// ReSharper disable once CheckNamespace
 
+using Scourge.AspNetCore.Throttling.Middleware;
 using Scourge.Hurt;
 using Scourge.Memory;
 
@@ -13,7 +14,8 @@ public static class ServiceCollectionExtensions
         return services
             .AddSingleton<IWorkManager>(IWorkManager.CreateDefault())
             .AddSingleton<ManagedAllocator>()
-            .AddSingleton<UnmanagedAllocator>();
+            .AddSingleton<UnmanagedAllocator>()
+            .AddSingleton<ThrottlingMiddlewareConfigService>();
 
     }
 }

@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
-using Microsoft.Extensions.Configuration;
-using System.Collections;
 using Scourge.AspNetCore.Information.Models;
 
 namespace Scourge.AspNetCore.Information;

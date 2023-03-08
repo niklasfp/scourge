@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace Scourge.AspNetCore.Log;
+namespace Scourge.AspNetCore.Logging;
 
 [JsonConverter(typeof(JsonStringEnumConverter))]
 public enum LogLevelType

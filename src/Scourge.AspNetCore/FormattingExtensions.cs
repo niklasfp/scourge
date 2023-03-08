@@ -13,6 +13,17 @@ internal static class FormattingExtensions
         };
     }
 
+    public static string ToFormattedSpeed(this int bytesPerSecond)
+    {
+        return bytesPerSecond switch
+        {
+            >= 1048576000 => $"{bytesPerSecond / 1073741824:f2} GB/s",
+            >= 1024000 => $"{bytesPerSecond / 1048576:f2} MB/s",
+            >= 1000 => $"{bytesPerSecond / 1024:f2} KB/s",
+            _ => $"{bytesPerSecond} Bytes/s"
+        };
+    }
+
     public static string ToFormattedDuration(this TimeSpan span)
     {
         return span.TotalSeconds switch

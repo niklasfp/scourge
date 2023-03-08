@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Scourge.AspNetCore.Information.Models;
 using System.Collections;
 using System.Diagnostics;
-using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace Scourge.AspNetCore.Information;
 

@@ -1,6 +1,4 @@
-﻿using static System.Net.WebRequestMethods;
-
-namespace Scourge.AspNetCore.GarbageCollector.Models;
+﻿namespace Scourge.AspNetCore.GarbageCollector.Models;
 
 // ReSharper disable UnusedMember.Global
 public readonly record struct GarbageCollectorInfo

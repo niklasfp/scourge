@@ -10,6 +10,7 @@ builder.Services.AddScourge();
 var app = builder.Build();
 
 // Map scourge
+app.UseScourgeThrottling();
 app.MapScourge("/");
 
 
@@ -19,6 +20,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
 
 // AppDomains does not exist in .net core...but some compatibility was left behind :D
 AppDomain.CurrentDomain.UnhandledException += (sender, eventArgs) =>

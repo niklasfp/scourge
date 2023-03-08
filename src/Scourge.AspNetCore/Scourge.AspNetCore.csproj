@@ -25,4 +25,8 @@
     <ItemGroup>
       <ProjectReference Include="..\Scourge\Scourge.csproj" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Throttling\Middleware\" />
+    </ItemGroup>
 </Project>

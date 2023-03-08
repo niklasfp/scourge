@@ -3,14 +3,13 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Logging;
-using Scourge.AspNetCore.Log;
 
 namespace Scourge.AspNetCore.Logging;
 
 internal abstract class Logger
 { };
 
-internal static class LogEndpoints
+internal static class ThrottlingEndpoints
 {
     public static RouteGroupBuilder MapLogApi(this RouteGroupBuilder group)
     {
