@@ -7,6 +7,10 @@
 		<LangVersion>11</LangVersion>
 	</PropertyGroup>
 
+	<ItemGroup>
+		<InternalsVisibleTo Include="$(AssemblyName).Tests" />
+	</ItemGroup>
+
 	<!-- Package Props-->
 	<PropertyGroup>
 		<Company>Niklas Petersen</Company>
