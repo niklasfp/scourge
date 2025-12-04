@@ -18,21 +18,19 @@ updates:
     schedule:
       interval: "weekly"
     groups:
-      xunit:
+      tests:
         patterns:
           - "xunit*"
+          - "Shouldly*"
+          - "Microsoft.NET.Test.Sdk"
+          - "coverlet*"
       Microsoft:
         patterns:
-          - "Microsoft*"
+          - "Microsoft.VisualStudio*"
+          - "Microsoft.AspNetCore*"
       System:
         patterns:
           - "System*"
-      coverlet:
-        patterns:
-          - "coverlet*"
       Swashbuckle:
         patterns:
           - "Swashbuckle*"
-      Shouldly:
-        patterns:
-          - "Shouldly*"
