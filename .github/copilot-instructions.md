@@ -106,7 +106,7 @@ public static IEndpointRouteBuilder MapScourge(this IEndpointRouteBuilder endpoi
 Use lock objects for thread synchronization:
 
 ```csharp
-private readonly object _lockToken = new();
+private readonly Lock _lockToken = new();
 
 public bool IsRunning
 {
