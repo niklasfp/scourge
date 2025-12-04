@@ -5,11 +5,11 @@
 
 	<!-- Dependencies for .net 10-->
 	<ItemGroup Condition=" '$(TargetFramework)' == 'net10.0' ">
-		<PackageVersion Include="xunit" Version="2.9.2" />
-		<PackageVersion Include="xunit.runner.visualstudio" Version="2.8.2"/>
-		<PackageVersion Include="Shouldly" Version="4.2.1" />
-		<PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
-		<PackageVersion Include="coverlet.collector" Version="6.0.2"/>
+		<PackageVersion Include="xunit" Version="2.9.3" />
+		<PackageVersion Include="xunit.runner.visualstudio" Version="3.1.5"/>
+		<PackageVersion Include="Shouldly" Version="4.3.0" />
+		<PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
+		<PackageVersion Include="coverlet.collector" Version="6.0.4"/>
 		<PackageVersion Include="System.Diagnostics.DiagnosticSource" Version="10.0.0" />
 		<PackageVersion Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
 		<PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="10.0.0" />
