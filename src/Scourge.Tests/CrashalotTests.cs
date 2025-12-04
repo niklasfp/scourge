@@ -1,4 +1,3 @@
-using FluentAssertions;
 using Scourge.Hurt;
 
 namespace Scourge.Tests
@@ -17,10 +16,10 @@ namespace Scourge.Tests
         public void ThrowExceptionMustThrowCorrectExceptionWithGenericType()
         {
             var actNull = () => Crashalot.ThrowException<ArgumentNullException>("");
-            actNull.Should().Throw<ArgumentNullException>();
+            Should.Throw<ArgumentNullException>(actNull);
 
             var actArg = () => Crashalot.ThrowException<ArgumentException>("");
-            actArg.Should().Throw<ArgumentException>();
+            Should.Throw<ArgumentException>(actArg);
         }
 
         [Theory]
@@ -29,7 +28,7 @@ namespace Scourge.Tests
         public void ThrowExceptionShouldFailWithNonExceptionTypes(Type aType)
         {
             var act = () => Crashalot.ThrowException(aType, "");
-            act.Should().Throw<ArgumentException>().WithMessage($"{aType} is not an exception type.");
+            Should.Throw<ArgumentException>(act).Message.ShouldBe($"{aType} is not an exception type.");
         }
 
 
