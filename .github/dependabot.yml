@@ -17,3 +17,20 @@ updates:
     directory: "/src" 
     schedule:
       interval: "weekly"
+    groups:
+      tests:
+        patterns:
+          - "xunit*"
+          - "Shouldly*"
+          - "Microsoft.NET.Test.Sdk"
+          - "coverlet*"
+      Microsoft:
+        patterns:
+          - "Microsoft.VisualStudio*"
+          - "Microsoft.AspNetCore*"
+      System:
+        patterns:
+          - "System*"
+      Swashbuckle:
+        patterns:
+          - "Swashbuckle*"
