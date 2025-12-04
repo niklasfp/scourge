@@ -28,8 +28,7 @@ namespace Scourge.Tests
         public void ThrowExceptionShouldFailWithNonExceptionTypes(Type aType)
         {
             var act = () => Crashalot.ThrowException(aType, "");
-            var exception = Should.Throw<ArgumentException>(act);
-            exception.Message.ShouldBe($"{aType} is not an exception type.");
+            Should.Throw<ArgumentException>(act).Message.ShouldBe($"{aType} is not an exception type.");
         }
 
 

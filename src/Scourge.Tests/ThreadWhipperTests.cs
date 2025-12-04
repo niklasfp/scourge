@@ -41,8 +41,7 @@ namespace Scourge.Tests
         {
             var cts = new CancellationTokenSource();
             var act = () => ThreadWhipper.DoNothingWork(threadCount, cts.Token);
-            var exception = Should.Throw<ArgumentOutOfRangeException>(act);
-            exception.Message.ShouldStartWith("Invalid number of threads specified.");
+            Should.Throw<ArgumentOutOfRangeException>(act).Message.ShouldStartWith("Invalid number of threads specified.");
         }
     }
 }
