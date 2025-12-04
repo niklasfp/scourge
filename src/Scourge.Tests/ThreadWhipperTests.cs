@@ -1,4 +1,3 @@
-using FluentAssertions;
 using Scourge.Hurt;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -9,7 +8,7 @@ namespace Scourge.Tests
         [Fact]
         public void ShouldReturnSameProcessorCountAsEnvironment()
         {
-            ThreadWhipper.ProcessorCount.Should().Be(Environment.ProcessorCount);
+            ThreadWhipper.ProcessorCount.ShouldBe(Environment.ProcessorCount);
         }
 
         [Theory]
@@ -24,15 +23,15 @@ namespace Scourge.Tests
             {
                 work = ThreadWhipper.DoNothingWork(threadCount, cts.Token);
 
-                work.ThreadCount.Should().Be(threadCount);
-                work.IsRunning.Should().BeTrue();
+                work.ThreadCount.ShouldBe(threadCount);
+                work.IsRunning.ShouldBeTrue();
             }
             finally
             {
                 cts.Cancel();
             }
 
-            work.IsRunning.Should().BeFalse();
+            work.IsRunning.ShouldBeFalse();
         }
 
         [Theory]
@@ -42,8 +41,8 @@ namespace Scourge.Tests
         {
             var cts = new CancellationTokenSource();
             var act = () => ThreadWhipper.DoNothingWork(threadCount, cts.Token);
-            act.Should().Throw<ArgumentOutOfRangeException>()
-                .Where(e => e.Message.StartsWith("Invalid number of threads specified."));
+            var exception = Should.Throw<ArgumentOutOfRangeException>(act);
+            exception.Message.ShouldStartWith("Invalid number of threads specified.");
         }
     }
 }
