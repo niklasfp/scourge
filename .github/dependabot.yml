@@ -17,3 +17,22 @@ updates:
     directory: "/src" 
     schedule:
       interval: "weekly"
+    groups:
+      xunit:
+        patterns:
+          - "xunit*"
+      Microsoft:
+        patterns:
+          - "Microsoft*"
+      System:
+        patterns:
+          - "System*"
+      coverlet:
+        patterns:
+          - "coverlet*"
+      Swashbuckle:
+        patterns:
+          - "Swashbuckle*"
+      Shouldly:
+        patterns:
+          - "Shouldly*"
