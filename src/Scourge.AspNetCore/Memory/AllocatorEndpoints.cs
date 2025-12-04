@@ -27,7 +27,11 @@ internal class AllocatorEndpoints<T> where T : struct, IAllocatorEntry
                 operation.Description =
                     "Allocates the given number of bytes and returns and id of the allocated memory.";
                 operation.Summary = "Allocates memory.";
-                operation.Parameters[0].Description = "The number of bytes to allocate..";
+                if (operation.Parameters?.Count > 0)
+                {
+                    var param = operation.Parameters[0]!;
+                    param.Description = "The number of bytes to allocate..";
+                }
                 return operation;
             });
 
@@ -36,7 +40,11 @@ internal class AllocatorEndpoints<T> where T : struct, IAllocatorEntry
             {
                 operation.Description = "Frees the memory belonging to the specified id";
                 operation.Summary = "Frees previously allocated memory.";
-                operation.Parameters[0].Description = "The id associated with the allocation.";
+                if (operation.Parameters?.Count > 0)
+                {
+                    var param = operation.Parameters[0]!;
+                    param.Description = "The id associated with the allocation.";
+                }
 
                 return operation;
             });

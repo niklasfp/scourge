@@ -5,6 +5,7 @@
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 	    <Title>Scourge for aspnet core - The punisher of your aspnet core web app</Title>
 	    <Description>Inflict pain 👊 in your aspnet core applications.</Description>
+	    <NoWarn>$(NoWarn);ASPDEPR002</NoWarn>
     </PropertyGroup>
 
 	<ItemGroup>
