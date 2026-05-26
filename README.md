@@ -98,3 +98,33 @@ You're more than welcome to contibute to Scurge, the process is simple.
 >*WHIP especially : one used to inflict pain or punishment.*  
 >*An instrument of punishment or criticism.*  
 >*Cause of wide or great affliction.*  
+
+## Maintenance: SHA-pin GitHub Actions
+
+This repository includes `scripts/pin_github_actions_sha.py` to find unpinned `uses:` entries in workflow files and pin them to the full 40-character commit SHA for the exact existing ref.
+
+The script:
+
+* Enumerates repositories for a GitHub owner (default: `niklasfp`)
+* Scans `.github/workflows/*.yml|*.yaml`
+* Leaves already SHA-pinned refs unchanged
+* Skips local (`./...`) and `docker://` actions
+* Keeps the existing logical version in an inline comment when pinning (for readability)
+* Supports dry-run mode and apply mode
+* Can create per-repository branches and pull requests (default), or direct commits with `--direct-commit`
+
+### Required token scopes
+
+Use a token in `GITHUB_TOKEN` or `GH_TOKEN` with permissions to read/write repository contents and create pull requests for the target repositories.
+
+### Dry run
+
+```bash
+python3 scripts/pin_github_actions_sha.py --owner niklasfp --dry-run
+```
+
+### Apply changes and create PRs
+
+```bash
+python3 scripts/pin_github_actions_sha.py --owner niklasfp --summary-file /tmp/sha-pin-summary.json
+```
